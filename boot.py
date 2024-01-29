@@ -26,6 +26,16 @@ def index(request):
     led.toggle()
     return "Toggled"
 
+@app.route('ledon')
+def index(request):
+    led.on()
+    return "LED on"
+
+@app.route('ledoff')
+def index(request):
+    led.off()
+    return "LED off"
+
 @app.route('update')
 def index(request):
     ugit.pull_all()
