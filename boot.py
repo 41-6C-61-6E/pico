@@ -1,12 +1,34 @@
-import ugit
+#boot.py
 
+import ugit
 from machine import Pin
 import utime
+from microdot import Microdot
+import gc
 
-#ugit.pull_all()
+led = Pin("LED", Pin.OUT)
 
-led_onboard = Pin("LED", Pin.OUT)
-while True:
- led_onboard.toggle()
- utime.sleep(3)
+wlan = ugit.wificonnect()
+app = Microdot()
 
+
+@app.route('/')
+def index(request):
+    return 'Hello'
+
+#@app.route('memory')
+#def index(request):
+#    response = '<h1>Free Memory={} bytes</hi>'.format(gc.mem_free())
+#    return response, {'Content-Type': 'text/html'}
+
+@app.route('toggle')
+def index(request):
+    led.toggle()
+    return "Toggled"
+
+@app.route('update')
+def index(request):
+    ugit.pull_all()
+    return "Updating..."
+
+app.run(port=80)
