@@ -54,4 +54,4 @@ print(station.ifconfig())
 ##
 
 # Execute main.py
-exec(open('main.py').read(), globals())
+#exec(open('main.py').read(), globals())
