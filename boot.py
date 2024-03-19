@@ -29,7 +29,7 @@ gc.collect()
 
 #ssid = 'YOUR_SSID'
 #password = 'YOUR_PASSWORD'
-mqtt_server = '10.10.10.5' #Replace with your MQTT Broker IP
+mqtt_server = '10.10.10.4' #Replace with your MQTT Broker IP
 
 client_id = ubinascii.hexlify(machine.unique_id())
 TOPIC_PUB_TEMP = b'esp/dht/temperature'
